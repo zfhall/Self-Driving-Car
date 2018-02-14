@@ -1,1 +1,1 @@
-README pending... wait project completion
+README pending... wait for project completion
