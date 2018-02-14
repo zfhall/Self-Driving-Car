@@ -17,9 +17,9 @@ ip = args["ip"]
 # sudo ffserver -f /etc/ff.conf_original & ffmpeg -v quiet -r 5 -s 320x240 -f video4linux2 -i /dev/video0 http://localhost/webcam.ffm
 
 fourcc = cv2.VideoWriter_fourcc(*'jpeg')
-out = cv2.VideoWriter('output.mov',fourcc, 20.0, (320,240))
-file_path = str(os.path.dirname(os.path.realpath(__file__)))+"/video_timestamps.txt"
-stream = urllib.request.urlopen('http://{ip}/webcam.mjpeg'.format(ip=ip))
+out = cv2.VideoWriter('output.mov',fourcc, 10.0, (320,240))
+file_path = str(os.path.dirname(os.path.realpath(__file__)))+"/data/video_timestamps.txt"
+stream = urllib.request.urlopen('http://{ip}:8090/camera.mjpeg'.format(ip=ip))
 bytes = bytes()
 while True:
     bytes += stream.read(1024)
